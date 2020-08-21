@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Your Cart Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <div>
+    <ion-row *ngIf="sellerInfo">
+      <ion-col col-2> <img src="{{ sellerInfo.seller_profile }}" alt="App logo" class="cardColImg"></ion-col>
+      <ion-col col-10>
+        <span class="productTitle">{{ sellerInfo.seller_name }}</span>
+        <span class="offerType commonCls">{{ sellerInfo.seller_address }}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    </ion-row>
+
+    <div *ngIf="products && products.length" class="cart_qty">
+      <ion-grid class="borderBottom" *ngFor="let product of products; let i = index">
+        <ion-row>
+          <ion-col col-6 (click)="gotoProductDetailPage(product.id)">
+            <div class="productName">
+              {{ product.name }}
+              <div>
+                <span>{{ product.qry }}</span>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <div class="qty_price">₹{{ product.sale_price }}</div>
+          </ion-col>
+          <ion-col col-3>
+            <ion-buttons class="cartButtons">
+              <div class="cartBtn cartRemove" (click)="updateProductQty('remove', product, i)">
+                <ion-icon name="remove"></ion-icon>
+              </div>
+              <span>{{ product.qty }}</span>
+              <div class="cartBtn cartAdd" (click)="updateProductQty('add', product, i)">
+                <ion-icon name="add"></ion-icon>
+              </div>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Coupon Code End-->
+      <ion-label>Bill Details</ion-label>
+
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-8>
+            <ion-label>Item Total</ion-label>
+          </ion-col>
+          <ion-col col-4>
+            <ion-label class="priceRight">₹{{ totalAmt }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-8>
+            <ion-label>Store Charges</ion-label>
+          </ion-col>
+          <ion-col col-4>
+            <ion-label class="priceRight">₹ 00 </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-grid class="borderBottom" no-padding>
+        <ion-row>
+          <ion-col col-8>
+            <ion-label>Other Charges</ion-label>
+          </ion-col>
+          <ion-col col-4>
+            <ion-label class="priceRight">₹ 00 </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      <ion-grid class="borderBottom topay">
+        <ion-row>
+          <ion-col col-8>
+            <ion-label>TO PAY</ion-label>
+          </ion-col>
+          <ion-col col-4>
+            <ion-label class="priceRight">₹{{ totalAmt }}</ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-6 class="bottomCol leftCol">
+        <span class="bottomBtns">₹{{ totalAmt }}</span>
+      </ion-col>
+      <ion-col col-6 class="bottomCol rightCol" (click)="gotoPayment()">
+        <span class="bottomBtns">PROCEED TO PAY</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

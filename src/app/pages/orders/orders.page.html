@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <ion-grid>
+
+    <ion-card class="item-box" (click)="gotoOrderDetail(order.id)" *ngFor="let order of orders">
+      <ion-col col-3 class="store-image">
+        <img *ngIf="order.product_details && order.product_details[0]" src="{{order.product_details[0].image}}"
+          alt="App logo" class="cardColImg">
+      </ion-col>
+      <ion-col col-9 class="store-info">
+        <span class="productTitle">Order ID: {{order.order_id}}</span>
+        <span class="offerType commonCls">Order Time: {{order.created_at}}</span><br>
+        <span class="minOrder commonCls">Status: {{order.order_status}}</span>
+      </ion-col>
+    </ion-card>
+
+  </ion-grid>
+
+  <div *ngIf="!orders || orders.length <= 0" class="no-item-found">
+    No order found.
+  </div>
+
+</ion-content>
+
+<app-tabs></app-tabs>

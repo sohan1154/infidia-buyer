@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen *ngIf="orderDetails">
+  
+  <ion-card>
+    <ion-item>
+      <p>Order ID: {{orderDetails.order_id}}</p>
+      <p>Order Date & Time: {{orderDetails.created_at}}</p>
+    </ion-item>
+    <ion-row>
+      <ion-col align-self-center>
+        <p>Total Amount: <i class="fas fa-rupee-sign"></i>{{orderDetails.total_amount}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col align-self-center text-left>
+        <p>Quantity: {{orderDetails.total_item}}</p>
+      </ion-col>
+      <ion-col align-self-center text-right>
+        <p>Status: {{orderDetails.order_status}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card *ngFor="let product of orderProducts">
+    <ion-item>
+      <ion-row>
+        <ion-thumbnail item-start>
+          <img src="{{product.image}}">
+        </ion-thumbnail>
+        <p>{{product.name}}</p>
+      </ion-row>
+      <ion-row>
+        <p>Price: {{product.amount}}</p>
+        <p>SKU: {{product.sku}}</p>
+        <p>Quantity: {{product.qty}}</p>
+      </ion-row>
+      <button ion-button color="dark" clear item-end><i class="fas fa-edit"></i></button>
+    </ion-item>
+  </ion-card>
+
+  <ion-list *ngIf="orderDetails.order_status == 'Pending'">
+    <ion-item>
+      <!-- <ion-button full color="light" (click)="returnItem(orderDetails.id)">Return</ion-button> -->
+      <ion-button full color="light" (click)="cancelOrder(orderDetails.id)">Cancel</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+  
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-6>
+          <ion-button color="dark" (click)="addNewAddress()" class="add-new">Add</ion-button>
+      </ion-col>
+      <ion-col col-6>
+          <ion-button color="danger" (click)="dismiss()" class="cancel-btn">Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+    
+    <ion-card class="productCard" *ngFor="let address of addresses; let i = index;"> 
+      <ion-item-sliding [ngClass]="{ 'selected' : isSelectedAddress(address.id) }">
+        <ion-item (click)="selectAddress(address)">
+          <ion-col col-2 class="store-image">
+            <ion-icon *ngIf="address.type=='Home'" name="home-outline" class="big-icon"></ion-icon>
+            <ion-icon *ngIf="address.type=='Business'" name="business-outline" class="big-icon"></ion-icon>
+            <ion-icon *ngIf="address.type=='Other'" name="clipboard-outline" class="big-icon"></ion-icon>
+          </ion-col>
+          <ion-col col-9 class="store-info">
+            <span class="productTitle">{{ address.location }}</span><br>
+            <span class="offerType commonCls">{{ address.address }}</span><br>
+            <span class="minOrder commonCls">{{ address.landmark }}</span>
+          </ion-col>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="primary" (click)="editAddress(address)">
+            <ion-icon name="pencil-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteAddress(address.id, i)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+
+  </ion-grid>
+
+</ion-content>

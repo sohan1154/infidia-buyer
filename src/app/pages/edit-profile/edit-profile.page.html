@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <form (ngSubmit)="updateProfile()" [formGroup]="editProfileForm">
+      <ion-row class="ion-justify-content-center" *ngIf="currentUser">
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div class="logo">
+            <img src="../../assets/images/infidia-new.png" alt="Infidia">
+          </div>
+          
+          <div padding>
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="text" [(ngModel)]="currentUser.name" placeholder="Name" formControlName="name" required></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="email" [(ngModel)]="currentUser.email" placeholder="Email" formControlName="email" required></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="number" [(ngModel)]="currentUser.mobile" placeholder="Mobile" formControlName="mobile" readonly></ion-input>
+            </ion-item>
+          </div>
+
+          <ion-fab horizontal="center" class="ion-margin-top">
+            <ion-button type="submit" color="danger" [disabled]="!editProfileForm.valid">
+              <ion-fab-button color="danger">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-button>
+          </ion-fab>
+
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+
+</ion-content>

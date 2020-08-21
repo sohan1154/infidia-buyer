@@ -1,0 +1,97 @@
+
+ion-segment-button {
+    background: #000000;
+    border: 1px solid;
+    border-radius: 3px;
+    color: #ffffff;
+    box-shadow: none;
+    width: 47%;
+    --indicator-color: none !important;
+}
+
+ion-segment-button.add-to-cart-btn {
+    margin-left: 3px;
+    background: #ffffff;
+    color: #555555;
+}
+
+ion-segment-button.buy-now-btn {
+    margin-right: 0px;
+}
+
+ion-card {
+    width: 97.5%;
+    margin: 5px;
+}
+
+.product-description {
+    text-align: justify;
+    font-size: 15px;
+    padding: 6px;
+    line-height: 1.5;
+}
+
+ion-icon.big-icon {
+    font-size: 50px;
+}
+
+.keystick-box {
+    padding: 20px 0px;
+}
+
+.product-keystick {
+    text-align: center;
+    color: #555555;
+}
+
+.keystick-text {
+    font-size: 12px;
+}
+
+.cart-btns-box {
+    border: 1px solid;
+    border-radius: 3px;
+    width: 94px;
+    float: right;
+}
+
+.cart-btns-box .remove {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 4px;
+}
+
+.cart-btns-box .text {
+    padding: 5px;
+}
+
+.cart-btns-box .unite {
+    padding: 0px 18px;
+}
+
+.cart-btns-box .add {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 4px;
+}
+
+.actual-price {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.price-box {
+    color: #555555;
+    font-size: 15px;
+}
+
+.detail-screen {
+    color: #555555;
+    padding: 20px 0px;
+    font-size: 20px;
+}
+
+.wishlist {
+    color: red;
+    float: right;
+}

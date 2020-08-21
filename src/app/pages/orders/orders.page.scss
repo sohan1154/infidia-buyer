@@ -1,0 +1,42 @@
+
+ion-col {
+    float: left;
+}
+
+.commonCls {
+    font-size: 13px;
+    font-weight: 500;
+    color: #72777a;
+    line-height: 21px;
+}
+
+.store-image {
+    max-width: 100px;
+}
+
+.store-info {
+    width: 280px;
+}
+
+.productTitle {
+    display: block;
+    margin-top: 10px;
+    min-height: 5vh;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    pointer-events: auto;
+    color: #72777a;
+}
+
+.no-item-found{
+    padding-top: 50%;
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.item-box {
+    width: 100%;
+    margin: 5px 0px;
+}

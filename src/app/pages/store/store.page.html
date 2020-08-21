@@ -1,0 +1,85 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Store</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <ion-list *ngIf="store_info">
+    <ion-item-sliding>
+      <ion-item lines="full">
+        <ion-label>
+          <p class="title">{{ store_info.name }}</p>
+          <p class="address">{{ store_info.address }}</p>
+        </ion-label>
+        <p (click)="gotoOffers()" class="offer">Best Offer <ion-icon name="snow"></ion-icon>
+        </p>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-grid  *ngIf="store_info">
+
+    <ion-row class="ion-justify-content-center">
+
+      <ion-card class="keystick-box">
+
+        <ion-row class="keystick-sub-box">
+          <ion-col class="store-keystick" col-4>
+            <span class="big-icon">{{ store_info.rating }}</span><br>
+            <span class="keystick-text">ratting</span>
+          </ion-col>
+          <ion-col class="store-keystick" col-4>
+            <span class="big-icon">{{ store_info.avg_delivery_time }}</span><br>
+            <span class="keystick-text">avg. delivery</span>
+          </ion-col>
+          <ion-col class="store-keystick" col-4>
+            <span class="big-icon">{{ store_info.min_order }}</span><br>
+            <span class="keystick-text">minimum order</span>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+
+    </ion-row>
+
+  </ion-grid>
+
+  <ion-searchbar animated="true" placeholder="Search Products" showCancelButton="always" (ionChange)="onSearchChange($event)"></ion-searchbar>
+
+  <ion-toolbar class="catetories-slider" *ngIf="business_categories">
+    <ion-segment class="slider-segment" color="dark" scrollable value="selected-{{ product_category_id }}">
+      <ion-segment-button (click)="filterProducts(business_category.category_id)" *ngFor="let business_category of business_categories" color="light" value="selected-{{ business_category.category_id }}">
+        <ion-label>{{ business_category.name }}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-list class="sub-cat-box">
+    <ion-item-sliding *ngIf="products">
+
+      <ion-item class="sub-cat" *ngFor="let product of products" (click)="gotoProductDetailPage(product.id)">
+        <ion-thumbnail slot="start">
+          <img src="{{ product.product_image }}" alt="{{ product.name }}" class="cardColImg">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ product.name }}</h2><br>
+          <ion-col col-8 class="price-box">
+            <span class="actual-price price-line-cut">₹{{ product.sale_price }}</span><br>
+            <span class="offer-price">₹{{ product.base_price }}</span>
+          </ion-col>
+        </ion-label>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <div *ngIf="!products || products.length <= 0" class="no-item-found">
+    No product found.
+  </div>
+
+</ion-content>

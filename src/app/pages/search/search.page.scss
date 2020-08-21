@@ -1,0 +1,65 @@
+
+ion-segment-button {
+    background: #000000;
+    border: 1px solid;
+    border-radius: 3px;
+    color: #ffffff;
+    box-shadow: none;
+    width: 47%;
+}
+
+ion-segment-button.left-btn {
+    margin-left: 8px;
+}
+
+ion-segment-button.right-btn {
+    margin-right: 8px;
+}
+
+ion-segment-button.segment-button-checked {
+    background: #ffffff;
+    color: #555555;
+    --indicator-color: none !important;
+}
+
+ion-card {
+    width: 97.5%;
+    margin: 5px;
+}
+
+ion-col {
+    float: left;
+}
+
+.commonCls {
+    font-size: 13px;
+    font-weight: 500;
+    color: #72777a;
+    line-height: 21px;
+}
+
+.store-image {
+    max-width: 100px;
+}
+
+.store-info {
+    width: 280px;
+}
+
+.productTitle {
+    display: block;
+    margin-top: 10px;
+    min-height: 5vh;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    pointer-events: auto;
+    color: #72777a;
+}
+
+.no-item-found{
+    padding-top: 50%;
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+}

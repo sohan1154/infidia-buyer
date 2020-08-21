@@ -1,0 +1,72 @@
+
+.keystick-box {
+    width: 100%;
+    margin: 0px;
+}
+
+.keystick-sub-box {
+    text-align: center;
+    color: #555555;
+}
+
+.store-keystick {
+    padding: 25px 0px;
+}
+
+.offer {
+    border: 1px solid;
+    padding: 5px 20px;
+    float: left;
+    font-size: 13px;
+    border-radius: 3px;
+    color: #555555;
+    margin-top: 0px;
+}
+
+.title {
+    font-size: 20px;
+    padding: 15px 0px 10px 0px;
+}
+
+.address {
+    padding-bottom: 10px;
+}
+
+ion-list {
+    padding: 0px;
+}
+
+ion-item.sub-cat {
+    float: left;
+    border-bottom: 1px solid #d2cdcd;
+    height: 100px;
+    width: 50%;
+    color: #555555;
+    border-inline-end: 1px solid #d2cdcd;
+}
+
+.actual-price {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.price-box {
+    color: #555555;
+    font-size: 15px;
+    padding: 0px;
+}
+
+ion-searchbar {
+    padding: 5px;
+}
+
+.slider-segment {
+    background-color: #ececec;
+}
+
+.no-item-found{
+    padding-top: 50%;
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+}

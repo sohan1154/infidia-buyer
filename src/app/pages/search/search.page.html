@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Search for Stores or Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar animated="true" placeholder="Search for Stores or Products" showCancelButton="always" (ionChange)="onSearchChange($event)"></ion-searchbar>
+
+  <ion-segment (ionChange)="tabChanged($event)" value="Stores">
+    <ion-segment-button class="left-btn" value="Stores">
+      <ion-label>Stores</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="right-btn" value="Products">
+      <ion-label>Products</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid>
+    <ion-card class="productCard" (click)="gotoNextScreen(key)" *ngFor="let value of results; let key = index;">
+      <ion-col col-3 class="store-image">
+        <img src="{{ value.image }}" alt="{{ value.name }}" class="cardColImg">
+      </ion-col>
+      <ion-col col-9 class="store-info">
+        <span class="productTitle">{{ value.name }}</span>
+        <span class="offerType commonCls">{{ value.location }}</span><br>
+        <span class="minOrder commonCls" *ngIf="resultType=='Products'"> Store - {{ value.store_name }}</span>
+        <span class="minOrder commonCls" *ngIf="resultType=='Stores'"> Minimum Order - {{ value.min_order }}</span>
+      </ion-col>
+    </ion-card>
+  </ion-grid>
+
+  <div *ngIf="!results || results.length <= 0" class="no-item-found">
+    No item found.
+  </div>
+
+</ion-content>
+
+<app-tabs></app-tabs>

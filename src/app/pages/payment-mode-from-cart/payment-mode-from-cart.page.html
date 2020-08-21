@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Payment Mode</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <ion-row class="keystick-box">
+    <ion-col class="product-keystick" col-6 (click)="buyNow(productDetail)">
+      <ion-icon name="card-outline" class="big-icon"></ion-icon><br>
+      <span class="keystick-text">Online Payment</span>
+    </ion-col>
+    <ion-col class="product-keystick" col-6 (click)="buyOnCash(productDetail)">
+      <ion-icon name="cash-outline" class="big-icon"></ion-icon><br>
+      <span class="keystick-text">Cash On Delivery</span>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

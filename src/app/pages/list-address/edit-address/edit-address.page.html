@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <div #map id="map"></div>
+
+  <ion-grid>
+
+    <form (ngSubmit)="saveAddress()" [formGroup]="addAddressForm">
+
+      <ion-row class="ion-justify-content-center">
+
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+
+          <ion-row class="address-buttons-box">
+            <ion-col class="home {{ (type=='Home') ? activeClass : normalClass }}" (click)="selectAddressType('Home')" col-4>
+              <ion-icon name="home-outline" class="big-icon"></ion-icon><br>
+              <span class="home-text">Home</span>
+            </ion-col>
+            <ion-col class="business {{ (type=='Business') ? activeClass : normalClass }}" (click)="selectAddressType('Business')" col-4>
+              <ion-icon name="business-outline" class="big-icon"></ion-icon><br>
+              <span class="business-text">Business</span>
+            </ion-col>
+            <ion-col class="other {{ (type=='Other') ? activeClass : normalClass }}" (click)="selectAddressType('Other')" col-4>
+              <ion-icon name="clipboard-outline" class="big-icon"></ion-icon><br>
+              <span class="other-text">Other</span>
+            </ion-col>
+          </ion-row>
+
+          <div padding>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="text" [(ngModel)]="address.location" formControlName="location" placeholder="Location"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="text" [(ngModel)]="address.house_no" formControlName="house_no" placeholder="House/Flat No."></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="text" [(ngModel)]="address.address" formControlName="address" placeholder="Address"></ion-input>
+            </ion-item>
+
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="number" [(ngModel)]="address.landmark" formControlName="pincode" placeholder="Pincode"></ion-input>
+            </ion-item>
+
+          </div>
+
+          <ion-row>
+            <ion-col col-6>
+              <ion-button type="submit" color="dark" class="submit-btn">Save</ion-button>
+            </ion-col>
+            <ion-col col-6>
+              <ion-button color="danger" (click)="dismiss()" class="cancle-btn">Cancle</ion-button>
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+
+      </ion-row>
+
+    </form>
+
+  </ion-grid>
+
+</ion-content>

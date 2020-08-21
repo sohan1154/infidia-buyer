@@ -1,0 +1,80 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor" *ngIf="productDetail">
+
+  <div class="header-banner" *ngIf="gallery_images">
+    <ion-slides #sliderOne class="sliderOneCls" autoplay="5000" loop>
+      <ion-slide *ngFor="let image of gallery_images">
+        <img src="{{ image.url }}" alt="Slider Image">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="detail-screen">
+    <ion-row>
+      <ion-col class="detail-title" col-9>{{ productDetail.name }}</ion-col>
+      <ion-col class="detail-Icon" col-3>
+        <ion-icon class="wishlist" name="heart" (click)="onClickHeart(heartRate)" [hidden]="!heartRate"></ion-icon>
+        <ion-icon class="wishlist" name="heart-outline" (click)="onClickHeart(heartRate)"
+          [hidden]="heartRate"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div>
+    <ion-row>
+      <ion-col col-8 class="price-box">
+        <span class="offer-price">₹{{ productDetail.sale_price }}</span>&nbsp;
+        <span class="actual-price">MRP: <span class="price-line-cut">₹{{ productDetail.base_price }}</span></span><br>
+        <span class="you-save">You save ₹{{ productDetail.base_price - productDetail.sale_price}}</span>
+      </ion-col>
+      <ion-col col-4>
+        <ion-buttons class="cart-btns-box" *ngIf="productDetail.stock_status != 0" right>
+          <div class="cartBtn remove" (click)="DecreaseCart(productDetail)">
+            <ion-icon name="remove"></ion-icon>
+          </div>
+          <span class="text" *ngIf="!showUnit">ADD</span>
+          <span class="unite" *ngIf="showUnit">{{cartSize}}</span>
+          <div class="cartBtn add" (click)="IncreaseCart(productDetail)">
+            <ion-icon name="add"></ion-icon>
+          </div>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="keystick-box">
+      <ion-col class="product-keystick" col-4>
+        <ion-icon name="arrow-undo-circle-outline" class="big-icon"></ion-icon><br>
+        <span class="keystick-text">{{ productDetail.return_policy }}, Returnable</span>
+      </ion-col>
+      <ion-col class="product-keystick" col-4>
+        <ion-icon name="alarm-outline" class="big-icon"></ion-icon><br>
+        <span class="keystick-text">{{ productDetail.shipping_time }} Delivery</span>
+      </ion-col>
+      <ion-col class="product-keystick" col-4>
+        <ion-icon name="shield-checkmark-outline" class="big-icon"></ion-icon><br>
+        <span class="keystick-text">{{ productDetail.warranty }} Warranty</span>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-card padding class="product-description" [innerHTML]="productDetail.description"></ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-segment>
+    <ion-segment-button class="add-to-cart-btn" (click)="addToMyCart(productDetail)">
+      <ion-label>ADD TO CART</ion-label>
+    </ion-segment-button>
+    <ion-segment-button class="buy-now-btn" (click)="buyNow(productDetail)">
+      <ion-label>BUY NOW</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-footer>

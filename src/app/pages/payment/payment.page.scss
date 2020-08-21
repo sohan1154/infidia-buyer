@@ -1,0 +1,50 @@
+
+.proceed-to-pay-btn {
+    border-radius: 3px;
+    height: 45px;
+}
+
+.cart-btns-box {
+    border: 1px solid;
+    border-radius: 3px;
+    width: 68px;
+    float: right;
+}
+
+.cart-btns-box .remove {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 4px;
+}
+
+.cart-btns-box .text {
+    padding: 5px;
+}
+
+.cart-btns-box .add {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 4px;
+}
+
+.price-box {
+    color: #555555;
+    font-size: 15px;
+}
+
+.detail-screen {
+    color: #555555;
+    padding: 5px 0px;
+    font-size: 20px;
+}
+
+.wishlist {
+    color: red;
+    float: right;
+}
+
+.item-name,
+.store-name,
+.amount {
+    color: #555555;
+}

@@ -1,0 +1,71 @@
+
+.shortBtn,
+.filterBtn {
+    padding: 15px 20px;
+}
+
+.shortBtn {
+    margin-right: 5px;
+}
+
+.flex-block .nearBy {
+    margin-left: 3px;
+}
+
+.flex-block .headerRightBtns {
+    float: right;
+    margin-right: 3px;
+}
+
+ion-col {
+    float: left;
+}
+
+.commonCls {
+    font-size: 13px;
+    font-weight: 500;
+    color: #72777a;
+    line-height: 21px;
+}
+
+.offerPrice {
+    font-weight: bold;
+    font-size: 15px;
+    float: right;
+}
+
+.store-image {
+    max-width: 100px !important;
+}
+
+.store-info {
+    width: 280px;
+}
+
+.productTitle {
+    display: block;
+    margin-top: 10px;
+    min-height: 5vh;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    pointer-events: auto;
+}
+
+.item-box {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+.near-by-stores {
+    padding-left: 0px;
+    color: #555555;
+}
+
+.filter-box {
+    padding-right: 0px;
+}
+
+.add-new {
+    float: right;
+}

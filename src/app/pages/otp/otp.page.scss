@@ -1,0 +1,34 @@
+
+.logo{
+    width: 200px;
+    margin: 0 auto;
+}
+
+ion-list{
+    margin: 0 !important;
+}
+
+.item{
+    width: calc(90% / 6);
+    float: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 2%;
+}
+
+.text-input-md{
+    width: 100%;
+}
+
+input.native-input.sc-ion-input-md {
+    color: #fff !important;
+}
+
+ion-button.transparent {
+    --box-shadow: none;
+    --background: none;
+}
+
+ion-input {
+    text-align: center;
+}

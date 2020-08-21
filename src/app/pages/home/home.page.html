@@ -1,0 +1,56 @@
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+--> 
+<ion-content padding class="transparent-header bgColor">
+  <div class="header-banner">
+    <ion-slides #sliderOne class="sliderOneCls" autoplay="5000" loop>
+      <ion-slide *ngFor="let banner of banners">
+        <img src="{{ banner.banner_image }}" alt="{{ banner.banner_name }}">
+      </ion-slide>     
+    </ion-slides>   
+  </div>
+
+  <ion-slides #sliderTwo class="sliderTwoCls" loop>
+    <ion-slide>
+      <ion-card class="list-card" *ngFor="let category of categories">
+        <div class="cardInnerWrap" (click)="gotoShopList(category.id)">
+          <img src="{{ category.image }}" alt="{{ category.name }}">
+          <div class="categoryTitle">{{ category.name }}</div>
+        </div>
+      </ion-card>
+    </ion-slide>    
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row class="flex-block">
+      <ion-col class="near-by-stores" col-4>
+        <p class="nearBy">Near By Stores</p>
+      </ion-col>
+      <ion-col class="filter-box" col-8>
+        <ion-buttons class="headerRightBtns" end>
+          <button ion-button class="shortBtn" (click)="presentActionSheet()"><ion-icon name="arrow-down"></ion-icon>Sort</button>
+          <button ion-button class="filterBtn" (click)="openFilterScreen()"><ion-icon name="funnel-outline"></ion-icon>Filter</button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+      <ion-card class="item-box" (click)="gotoShopProductsList(seller.seller_id)" *ngFor="let seller of sellers">
+        <ion-col col-3 class="store-image">
+          <img src="{{ seller.image }}" alt="{{ seller.name }}" class="cardColImg">
+        </ion-col>
+        <ion-col col-9 class="store-info">
+          <span class="productTitle">{{ seller.name }}</span>
+          <span class="offerType commonCls">{{ seller.address }}</span><br>
+          <span class="minOrder commonCls"> Minimum Order - {{ seller.min_order }}</span>
+        </ion-col>
+      </ion-card>
+  </ion-grid>
+
+</ion-content>
+
+<app-tabs></app-tabs>

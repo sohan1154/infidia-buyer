@@ -1,0 +1,49 @@
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div class="logo">
+          <img src="../../assets/images/infidia-new.png" alt="Infidia">
+        </div>
+
+        <form (ngSubmit)="login($event)" [formGroup]="loginform">
+          <div padding class="ion-text-center">
+            <ion-text color="dark">
+              <h5>Enter your phone number to get started</h5>
+            </ion-text>
+            <ion-item class="ion-margin-top input-box" lines="none">
+              <ion-input type="tel" placeholder="Mobile Number" maxlength="10" name="phoneNumber"
+                formControlName="phoneNumber"
+                [class.invalid]="!loginform.controls.phoneNumber.valid && loginform.controls.phoneNumber.dirty"></ion-input>
+            </ion-item>
+            <div class="error-message" *ngIf="!loginform.controls.phoneNumber.valid && loginform.controls.phoneNumber.dirty">
+              <p class="validation-error" *ngIf="loginform.controls.phoneNumber.hasError('required')">
+                <ion-icon name="errorSign"></ion-icon>
+                Contact number is blank
+              </p>
+              <p class="validation-error" *ngIf="loginform.controls.phoneNumber.hasError('pattern')">
+                <ion-icon name="errorSign"></ion-icon>
+                Contact number only accept numeric value
+              </p>
+              <p class="validation-error" *ngIf="loginform.controls.phoneNumber.hasError('minlength')">
+                <ion-icon name="errorSign"></ion-icon>
+                Contact number must be 10 digit
+              </p>
+            </div>
+          </div>
+
+          <ion-fab horizontal="center" class="ion-margin-top">
+            <ion-button type="submit" color="danger" [disabled]="!loginform.valid">
+              <ion-fab-button color="danger">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-fab-button>
+            </ion-button>
+          </ion-fab>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

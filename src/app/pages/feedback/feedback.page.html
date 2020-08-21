@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Share Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding center text-center no-scroll>
+  <form (ngSubmit)="shareFeedback()" [formGroup]="feedbackForm">
+    <div class="row">
+      <div class="feedback-form">
+        <ion-item lines="none">
+          <ion-textarea class="feedback-box" rows="30" cols="20" formControlName="description" placeholder="Write your feedback"></ion-textarea>
+        </ion-item>
+        
+        <ion-fab horizontal="center" class="ion-margin-top">
+          <ion-button type="submit" color="danger" [disabled]="!feedbackForm.valid">
+            <ion-fab-button color="danger">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-button>
+        </ion-fab>
+      </div>
+    </div>
+  </form>
+
+</ion-content>

@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="transparent-header bgColor">
+
+  <div class="bill-items">
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item lines="full" (click)="productDetail(product.id)">
+          <ion-thumbnail slot="start">
+            <img src="assets/images/categories/block1.png" alt="App logo" class="cardColImg">
+          </ion-thumbnail>
+          <ion-label>
+            <h2 class="item-name">Shirt</h2>
+            <h3 class="store-name">National Handloom</h3>
+            <p class="amount">₹250</p>
+          </ion-label>
+          <ion-buttons slot="end" class="cart-btns-box" right>
+            <div class="cartBtn remove" (click)="DecreaseCart(productDetail)">
+              <ion-icon name="remove"></ion-icon>
+            </div>
+            <span class="text">1</span>
+            <div class="cartBtn add" (click)="IncreaseCart(productDetail)">
+              <ion-icon name="add"></ion-icon>
+            </div>
+          </ion-buttons>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item lines="full" (click)="productDetail(product.id)">
+          <ion-thumbnail slot="start">
+            <img src="assets/images/categories/block1.png" alt="App logo" class="cardColImg">
+          </ion-thumbnail>
+          <ion-label>
+            <h2 class="item-name">Shirt</h2>
+            <h3 class="store-name">National Handloom</h3>
+            <p class="amount">₹250</p>
+          </ion-label>
+          <ion-buttons slot="end" class="cart-btns-box" right>
+            <div class="cartBtn remove" (click)="DecreaseCart(productDetail)">
+              <ion-icon name="remove"></ion-icon>
+            </div>
+            <span class="text">1</span>
+            <div class="cartBtn add" (click)="IncreaseCart(productDetail)">
+              <ion-icon name="add"></ion-icon>
+            </div>
+          </ion-buttons>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <div class="bill-calculation">
+    <ion-list>
+      <ion-item-sliding>
+        
+        <ion-item lines="none">
+          <ion-label>
+            <p>Item Total</p>
+          </ion-label>
+          <p class="amount">₹750</p>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>
+            <p>Store Charge</p>
+          </ion-label>
+          <p class="amount">₹0</p>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label>
+            <p>Other Charges</p>
+          </ion-label>
+          <p class="amount">₹0</p>
+        </ion-item>
+
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <div class="bill-total">
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item lines="full">
+          <ion-label>
+            <p>To Pay</p>
+          </ion-label>
+          <p class="amount total-amount">₹750</p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="full" color="dark" class="proceed-to-pay-btn" (click)="makePayment()">₹750 PROCEED TO PAY
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list *ngFor="let category of categories; let i = index">
+    <ion-item-sliding>
+      <ion-item lines="full">
+        <ion-thumbnail slot="start">
+          <img src="{{ category.image }}" alt="" class="cardColImg">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ category.name }}</h2>
+        </ion-label>
+        <ion-item-option (click)="toggle(i)">
+          <ion-icon class="add-btn" name="{{ (category.isDisplay) ? 'remove' : 'add' }}"></ion-icon>
+        </ion-item-option>
+      </ion-item>
+    </ion-item-sliding>
+
+    <ion-list class="sub-cat-box" [hidden]="isHide(i)">
+      <ion-item-sliding>
+        <ion-item class="sub-cat"  (click)="gotoShopList(subCat.id)" *ngFor="let subCat of category.sub_category">
+          <ion-thumbnail slot="start">
+            <img src="{{ subCat.image }}" alt="" class="cardColImg">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ subCat.name }}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+
+  </ion-list>
+
+</ion-content>
+
+<app-tabs></app-tabs>
